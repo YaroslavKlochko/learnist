@@ -9,6 +9,6 @@ public class MainController {
 
     @GetMapping(value = "/main")
     public String getIndexPage() {
-        return "index";
+        return "main";
     }
 }

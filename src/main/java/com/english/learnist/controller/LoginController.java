@@ -28,7 +28,10 @@ public class LoginController {
     @GetMapping(value = "/perform_logout")
     public final String logout(final HttpServletRequest request, final HttpServletResponse response) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null) new SecurityContextLogoutHandler().logout(request, response, authentication);
-        return "login";
+        if (authentication != null) {
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
+            return "login";
+        }
+        return "error";
     }
 }

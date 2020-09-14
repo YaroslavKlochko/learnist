@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class GreetingController {
 
-    @GetMapping(value = {"/greeting", "/"})
+    @GetMapping
     public String greetingController() {
-        return "greeting";
+        return "index";
     }
 }
