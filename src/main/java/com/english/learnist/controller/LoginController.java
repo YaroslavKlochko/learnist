@@ -15,18 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController {
 
     @GetMapping(value = "/login")
-    public String login() {
+    public String getLogin() {
         return "login";
     }
 
     @GetMapping("/login-error")
-    public String loginError(Model model) {
+    public String getLoginErrorPage(Model model) {
         model.addAttribute("loginError", true);
         return "error";
     }
 
     @GetMapping(value = "/perform_logout")
-    public final String logout(final HttpServletRequest request, final HttpServletResponse response) {
+    public final String getLogoutPage(final HttpServletRequest request, final HttpServletResponse response) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
