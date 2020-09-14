@@ -1,51 +1,20 @@
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Learnist</title>
-    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet"
-          href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link th:href="@{/assets/css/login.css}" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Learnist</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">
-                    Courses
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<h1 style="color: white" align="center">Welcome to Learnist!</h1>
+<div style=color:floralwhite content="align-content: center">
+    <div style="padding: 150px">
+        The fastest way to learn a language</br>
+        A natural approach to learning real-life language. Jump in and give it a go!</br>
+        Click <a th:href="@{/main}">here</a> to get started
     </div>
-</nav>
-
-<nav class="navbar fixed-bottom navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Learnist</a>
-    <div style="color: lightgrey">Copyright © 2020 all rights reserved</div>
-</nav>
+</div>
 </body>
 </html>

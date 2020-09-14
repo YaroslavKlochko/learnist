@@ -1,14 +1,13 @@
-
 package com.english.learnist.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController {
+public class IndexController {
 
-    @GetMapping(value = "/main")
-    public String getMainPage() {
-        return "main";
+    @GetMapping
+    public String getIndexPage() {
+        return "index";
     }
 }
