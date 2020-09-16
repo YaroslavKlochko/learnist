@@ -1,4 +1,4 @@
-package com.english.learnist;
+package com.learnist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

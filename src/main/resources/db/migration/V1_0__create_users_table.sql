@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE users
+(
+  id       BIGSERIAL PRIMARY KEY NOT NULL,
+  username VARCHAR(50),
+  password VARCHAR(150)
+);

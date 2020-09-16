@@ -1,4 +1,4 @@
-package com.english.learnist.config;
+package com.learnist.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
