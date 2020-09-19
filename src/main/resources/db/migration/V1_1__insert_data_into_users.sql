@@ -1,5 +1,5 @@
 INSERT INTO users (id, username, password) VALUES
-  (1, 'Mike', 'passwordmike');
+  (1, 'Mike', '$2a$10$hOAGNhx2NlMDgOuqEtpVRuirARuD..HywjJTAVE9FEEqGkzJnnTcW');
 
 INSERT INTO users (id, username, password) VALUES
   (2, 'Bob', 'passwordbob');

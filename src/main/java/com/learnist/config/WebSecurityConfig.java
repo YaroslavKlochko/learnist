@@ -1,5 +1,7 @@
 package com.learnist.config;
 
+import com.learnist.database.repository.UserRepository;
+import com.learnist.database.service.AdminDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +16,12 @@ import static java.lang.Boolean.TRUE;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final UserRepository userRepository;
+
+    public WebSecurityConfig(final UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -40,15 +48,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user")
-                .password(passwordEncoder().encode("password"))
-                .roles("USER")
-                .and()
-                .withUser("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN");
+        auth.userDetailsService(getUserDetailsService()).passwordEncoder(passwordEncoder());
+    }
+
+    @Bean(name = "userDetailsService")
+    public AdminDetailsService getUserDetailsService() {
+        return new AdminDetailsService(userRepository);
     }
 
     @Bean
