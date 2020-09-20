@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import static java.lang.Boolean.TRUE;
+
 @Service
 public final class AdminDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
@@ -21,7 +23,7 @@ public final class AdminDetailsService implements UserDetailsService {
 
         return new UserAuth(
                 user.getUsername(),
-                user.getPassword()
-        );
+                user.getPassword(),
+                TRUE, TRUE, TRUE, TRUE);
     }
 }

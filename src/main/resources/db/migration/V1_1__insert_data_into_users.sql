@@ -1,14 +1,5 @@
-INSERT INTO users (id, username, password) VALUES
-  (1, 'Mike', '$2a$10$hOAGNhx2NlMDgOuqEtpVRuirARuD..HywjJTAVE9FEEqGkzJnnTcW');
+INSERT INTO users (username, password) VALUES
+  ('user', '$2a$10$7eVXRzFSz385WpByla5pO.L5a5OSa0oZ8IlgB2Lxj5aaNlKqu7r0O');
 
-INSERT INTO users (id, username, password) VALUES
-  (2, 'Bob', 'passwordbob');
-
-INSERT INTO users (id, username, password) VALUES
-  (3, 'John', 'passwordjohn');
-
-INSERT INTO users (id, username, password) VALUES
-  (4, 'Kevin', 'passwordkevin');
-
-INSERT INTO users (id, username, password) VALUES
-  (5, 'Tom', 'passwordtom');
+INSERT INTO users (username, password) VALUES
+  ('admin', '$2a$10$D9NsSU.I28ze6bdmpeK1ROt1p5Nij1NgRbip4xjmCjEfyT1h9J0OS');
