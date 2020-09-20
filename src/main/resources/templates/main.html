@@ -1,4 +1,4 @@
-<html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,6 +41,10 @@
         </form>
     </div>
 </nav>
+<div sec:authorize="isAuthenticated()">
+    This content is only shown to authenticated users.
+</div>
+Logged user: <span sec:authentication="name"></span></br>
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Learnist</a>
     <div style="color: lightgrey">Copyright © 2020 all rights reserved</div>
