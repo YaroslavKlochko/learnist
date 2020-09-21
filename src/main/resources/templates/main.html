@@ -41,10 +41,26 @@
         </form>
     </div>
 </nav>
+
+<span sec:authentication="principal.authorities">Roles</span>
+<div sec:authorize="hasAnyAuthority('ADMIN')">
+    <a href="/new">Approve New Product</a>
+</div>
+<div sec:authorize="hasAnyAuthority('CREATOR')">
+    <a href="/new">Create New Product</a>
+</div>
+<div sec:authorize="hasAnyAuthority('ADMIN')">
+    This content is only shown to administrators.
+</div>
+<div sec:authorize="hasAnyAuthority('USER')">
+    This content is only shown to users.
+</div>
+<div sec:authorize="hasAnyAuthority('CREATOR')">
+    This content is only shown to creators.
+</div>
 <div sec:authorize="isAuthenticated()">
     This content is only shown to authenticated users.
 </div>
-Logged user: <span sec:authentication="name"></span></br>
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Learnist</a>
     <div style="color: lightgrey">Copyright © 2020 all rights reserved</div>
