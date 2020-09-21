@@ -44,20 +44,9 @@ public class User implements UserDetails {
     @Column(name = "credentials_expired")
     private boolean credentialsNonExpired = true;
 
-
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "role_users", joinColumns = {
-            @JoinColumn(name = "user_id", referencedColumnName = "id")}, inverseJoinColumns = {
-            @JoinColumn(name = "role_id", referencedColumnName = "id")})
-    private Set<Role> roles = new HashSet<>();
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         final Set<GrantedAuthority> authorities = new HashSet<>();
-        roles.forEach(r -> {
-            authorities.add(new SimpleGrantedAuthority(r.getName()));
-        });
         return authorities;
     }
 

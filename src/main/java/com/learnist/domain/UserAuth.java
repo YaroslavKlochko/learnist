@@ -1,21 +1,29 @@
 package com.learnist.domain;
 
-public class UserAuth extends User {
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+
+public class UserAuth extends org.springframework.security.core.userdetails.User {
     private final String username;
     private final String password;
 
-    public UserAuth(String username, String password) {
+    public UserAuth(final String username,
+                    final String password,
+                    Collection<? extends GrantedAuthority> authorities) {
+        super(username, password,authorities);
         this.username = username;
         this.password = password;
     }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
+    public UserAuth(final String username,
+                    final String password,
+                    final boolean enabled,
+                    final boolean accountNonExpired,
+                    final boolean credentialsNonExpired,
+                    final boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+        this.username = username;
+        this.password = password;
     }
 }
