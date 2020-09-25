@@ -1,5 +1,5 @@
 # learnist
 Default users:
-user_name/user
-admin_name/admin
-creator_name/admin
+user_Bob/user
+admin_Mike/admin
+creator_John/admin
