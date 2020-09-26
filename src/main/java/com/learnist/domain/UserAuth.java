@@ -10,7 +10,7 @@ public class UserAuth extends org.springframework.security.core.userdetails.User
 
     public UserAuth(final String username,
                     final String password,
-                    Collection<? extends GrantedAuthority> authorities) {
+                    final Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.username = username;
         this.password = password;
@@ -21,7 +21,8 @@ public class UserAuth extends org.springframework.security.core.userdetails.User
                     final boolean enabled,
                     final boolean accountNonExpired,
                     final boolean credentialsNonExpired,
-                    final boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+                    final boolean accountNonLocked,
+                    final Collection<? extends GrantedAuthority> authorities) {
         super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
         this.username = username;
         this.password = password;
