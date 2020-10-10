@@ -27,7 +27,7 @@ import java.util.Set;
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User implements UserDetails {
 
     @Id
     @Column(name = "user_id")
@@ -36,13 +36,13 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
-    private boolean enabled = true;
+    private boolean enabled;
     @Column(name = "account_non_locked")
-    private boolean accountNonLocked = true;
+    private boolean accountNonLocked;
     @Column(name = "account_expired")
-    private boolean accountNonExpired = true;
+    private boolean accountNonExpired;
     @Column(name = "credentials_expired")
-    private boolean credentialsNonExpired = true;
+    private boolean credentialsNonExpired;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
@@ -58,5 +58,35 @@ public class User {
             role.getPermissions().forEach(p -> authorities.add(new SimpleGrantedAuthority(p.getName())));
         }
         return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
