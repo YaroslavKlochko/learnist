@@ -1,20 +1,16 @@
 <<<<<<< HEAD
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Error page</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link th:href="@{/assets/css/login.css}" rel="stylesheet"/>
 =======
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+>>>>>>> lr-008_BE_create_entity_user
 <head>
-    <title>Error page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<<<<<<< HEAD
+    <link th:href="@{/assets/css/login.css}" rel="stylesheet"/>
+=======
     <link th:href="@{/assets/css/style.css}" rel="stylesheet"/>
 >>>>>>> lr-008_BE_create_entity_user
 </head>
@@ -31,7 +27,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <p style=color:whitesmoke th:if="${loginError}" class="error">Wrong user or password</p>
+                <p th:if="${loginError}" class="error">Wrong user or password</p>
                 <form id="main-form" method="post" th:action="@{/j_spring_security_check}">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
@@ -61,10 +57,5 @@
         </div>
     </div>
 </div>
-<a href="index.html" th:href="@{/greeting.html}">Back to Home Page</a>
 </body>
 </html>
-<<<<<<< HEAD
-=======
-
->>>>>>> lr-008_BE_create_entity_user
