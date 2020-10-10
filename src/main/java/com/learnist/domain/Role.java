@@ -34,5 +34,13 @@ public class Role {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private Set<Permission> permissions = new HashSet<>();
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<Permission> getPermissions() {
+        return permissions;
+    }
 }
 

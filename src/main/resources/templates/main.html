@@ -18,21 +18,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="/main">Settings</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" href="/main" id="navbarDropdown" role="button"
+                   data-toggle="dropdown"
                    aria-haspopup="true"
                    aria-expanded="false">
                     Courses
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="/main">Action</a>
+                    <a class="dropdown-item" href="/main">Another action</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/perform_logout"> Logout</a>
                 </div>
@@ -65,10 +65,10 @@
     <a href="/user/profile">5) all roles can access this link</a>
 </div>
 <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_CREATOR')">
-    <a class="btn btn-primary" href="/logout" role="button">Logout</a>
+    <a class="btn btn-primary" href="/perform_logout" role="button">Logout</a>
 </div>
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Learnist</a>
+    <a class="navbar-brand" href="/main">Learnist</a>
     <div style="color: lightgrey">Copyright © 2020 all rights reserved</div>
 </nav>
 </body>
