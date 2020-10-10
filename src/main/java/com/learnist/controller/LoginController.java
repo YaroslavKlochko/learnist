@@ -1,4 +1,4 @@
-package com.english.learnist.controller;
+package com.learnist.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
