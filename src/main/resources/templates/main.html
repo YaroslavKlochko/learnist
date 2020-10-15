@@ -50,7 +50,7 @@
     This text is only shown to roles with can_update permissions.
 </div>
 <div sec:authorize="hasRole('ROLE_ADMIN')">
-    <a href="/creator/profile">1) link only for admin</a>
+    <a href="/admin/profile">1) admin panel</a>
 </div>
 <div sec:authorize="hasAuthority('can_update')">
     <a href="/creator/profile">2) link with auth can_update</a>

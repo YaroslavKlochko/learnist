@@ -47,9 +47,21 @@
 <div sec:authorize="hasRole('ROLE_USER')">
     This content is only shown to users.
 </div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    <form th:action="@{/user/add}" method="post" th:object="${user}">
+        <label>Name:</label>
+        <input type="text" name="username"/><br>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    <div th:if="${param.success}">
+        <div class="alert alert-info"> You've successfully added new user to learnist!</div>
+    </div>
+</div>
 <div th:text="'User page is under maintenance, sorry for any inconvenience.'"></div>
 <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_CREATOR')">
-    <a class="btn btn-primary" href="/main" role="button">Go Back</a>
+    <a class="btn btn-secondary" href="/main" role="button">Go Back</a>
 </div>
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Learnist</a>

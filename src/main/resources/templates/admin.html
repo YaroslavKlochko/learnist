@@ -26,6 +26,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">
                     Courses
+
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Action</a>
@@ -41,13 +42,9 @@
         </form>
     </div>
 </nav>
-<div sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-    This content is only shown to administrators.
+<div sec:authorize="hasAuthority('ROLE_ADMIN')">
+    <a href="/user/add">Add new user</a>
 </div>
-<div sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-    <a href="/main">Approve New Product</a>
-</div>
-<div th:text="'Admin page is under maintenance, sorry for any inconvenience.'"></div>
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <a class="btn btn-primary" href="/main" role="button">Go Back</a>
 </div>
