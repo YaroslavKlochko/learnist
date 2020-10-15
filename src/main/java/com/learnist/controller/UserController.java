@@ -1,16 +1,12 @@
 package com.learnist.controller;
 
 import com.learnist.database.service.UserService;
-import com.learnist.domain.User;
 import com.learnist.domain.UserDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.EntityNotFoundException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "user")
@@ -31,6 +27,5 @@ public class UserController {
     public String addUserAccount(@ModelAttribute("user") UserDTO user) {
         userService.addUser(user);
         return "redirect:/user/add?success";
-
     }
 }
