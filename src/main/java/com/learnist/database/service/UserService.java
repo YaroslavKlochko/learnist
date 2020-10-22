@@ -3,7 +3,6 @@ package com.learnist.database.service;
 import com.learnist.database.repository.UserRepository;
 import com.learnist.domain.User;
 import com.learnist.domain.UserDTO;
-import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
