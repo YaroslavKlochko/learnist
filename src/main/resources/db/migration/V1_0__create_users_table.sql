@@ -1,8 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
-CREATE TABLE users
-(
+CREATE TABLE users (
   user_id             BIGSERIAL PRIMARY KEY NOT NULL,
-  username            VARCHAR(50),
+  username            VARCHAR(50) UNIQUE,
   password            VARCHAR(150),
   enabled             BOOLEAN               NOT NULL,
   account_expired     BOOLEAN               NOT NULL,

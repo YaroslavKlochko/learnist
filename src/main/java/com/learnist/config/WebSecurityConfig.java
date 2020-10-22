@@ -11,6 +11,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 import static java.lang.Boolean.TRUE;
 
@@ -20,9 +24,11 @@ import static java.lang.Boolean.TRUE;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserRepository userRepository;
+    private final DataSource dataSource;
 
-    public WebSecurityConfig(final UserRepository userRepository) {
+    public WebSecurityConfig(final UserRepository userRepository, DataSource dataSource) {
         this.userRepository = userRepository;
+        this.dataSource = dataSource;
     }
 
     @Override
@@ -32,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/assets/**", "/webjars/**", "/resources/**").permitAll()
                 .antMatchers("/", "/index").permitAll()
                 .anyRequest().authenticated()
+
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -39,13 +46,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/j_spring_security_check")
                 .defaultSuccessUrl("/main")
                 .failureUrl("/login-error")
+
                 .and()
                 .logout()
                 .logoutUrl("/perform_logout")
                 .invalidateHttpSession(TRUE)
                 .deleteCookies("JSESSIONID")
                 .clearAuthentication(TRUE)
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/login")
+
+                .and()
+                .rememberMe()
+                .key("superSecretKey")
+                .tokenRepository(tokenRepository());;
+    }
+
+    @Bean
+    public PersistentTokenRepository tokenRepository(){
+        JdbcTokenRepositoryImpl token = new JdbcTokenRepositoryImpl();
+        token.setDataSource(dataSource);
+        return token;
     }
 
     @Autowired
