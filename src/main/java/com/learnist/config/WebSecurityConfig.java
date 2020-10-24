@@ -58,6 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe()
                 .key("superSecretKey")
+                .tokenValiditySeconds(84600)
                 .tokenRepository(tokenRepository());;
     }
 
