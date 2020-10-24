@@ -26,6 +26,11 @@ public class Role {
     )
     private Set<Permission> permissions = new HashSet<>();
 
+    public Role(String name, Set<Permission> permissions) {
+        this.name = name;
+        this.permissions = permissions;
+    }
+
     public String getName() {
         return name;
     }

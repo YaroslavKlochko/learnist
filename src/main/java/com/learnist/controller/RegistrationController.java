@@ -25,4 +25,13 @@ public class RegistrationController {
     public String getRegistrationPage() {
         return "registration";
     }
+
+    @PostMapping(value = "/registration")
+    public String registerAccount(@ModelAttribute("user") UserDTO user, final HttpServletRequest request) {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        request.getSession().setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
+        userService.addUser(user);
+        return "redirect:/registration?success";
+    }
 }
