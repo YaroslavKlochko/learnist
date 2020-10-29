@@ -26,19 +26,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserRepository userRepository;
     private final DataSource dataSource;
 
-    public WebSecurityConfig(final UserRepository userRepository, DataSource dataSource) {
+    public WebSecurityConfig(final UserRepository userRepository, final DataSource dataSource) {
         this.userRepository = userRepository;
         this.dataSource = dataSource;
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/assets/**", "/webjars/**", "/resources/**").permitAll()
                 .antMatchers("/", "/index", "/registration").permitAll()
                 .anyRequest().authenticated()
 
+                .and()
+                .oauth2Login().loginPage("/login")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -59,18 +61,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 .key("superSecretKey")
                 .tokenValiditySeconds(84600)
-                .tokenRepository(tokenRepository());;
+                .tokenRepository(tokenRepository());
     }
 
     @Bean
-    public PersistentTokenRepository tokenRepository(){
+    public PersistentTokenRepository tokenRepository() {
         JdbcTokenRepositoryImpl token = new JdbcTokenRepositoryImpl();
         token.setDataSource(dataSource);
         return token;
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(getUserDetailsService()).passwordEncoder(passwordEncoder());
     }
 

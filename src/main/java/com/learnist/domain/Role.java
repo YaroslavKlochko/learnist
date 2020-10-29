@@ -26,7 +26,7 @@ public class Role {
     )
     private Set<Permission> permissions = new HashSet<>();
 
-    public Role(String name, Set<Permission> permissions) {
+    public Role(final String name, final Set<Permission> permissions) {
         this.name = name;
         this.permissions = permissions;
     }

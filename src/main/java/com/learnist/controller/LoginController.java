@@ -20,7 +20,7 @@ public class LoginController {
     }
 
     @GetMapping("/login-error")
-    public String getLoginErrorPage(Model model) {
+    public String getLoginErrorPage(final Model model) {
         model.addAttribute("loginError", true);
         return "error";
     }

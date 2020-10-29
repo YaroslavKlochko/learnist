@@ -22,6 +22,12 @@ public class UserService {
 
     Logger logger = LoggerFactory.getLogger(UserService.class);
 
+    public UserService(final WebSecurityConfig webSecurityConfig, final UserRepository userRepository, final RoleService roleService) {
+        this.webSecurityConfig = webSecurityConfig;
+        this.userRepository = userRepository;
+        this.roleService = roleService;
+    }
+
     public void addUser(final UserDTO user) {
         logger.debug("Trying to add user: {}",user.getUsername());
         User newUser = new User();

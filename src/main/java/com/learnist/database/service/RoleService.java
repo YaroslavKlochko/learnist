@@ -11,6 +11,10 @@ public class RoleService {
 
     private final RoleRepository roleRepository;
 
+    public RoleService(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
     public Role findRoleByName(final String name){
         return roleRepository.findRoleByName(name);
     }
