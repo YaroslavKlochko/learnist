@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -13,9 +13,8 @@
             <div class="card-header">
                 <h3>Sign In</h3>
                 <div class="d-flex justify-content-end social_icon">
-                    <span><i class="fab fa-facebook-square"></i></span>
-                    <span><i class="fab fa-google-plus-square"></i></span>
-                    <span><i class="fab fa-twitter-square"></i></span>
+                    <a href="/oauth2/authorization/google"><span><i class=" fab fa-google-plus-square"></i></span></a>
+                    <a href="/oauth2/authorization/facebook"><span><i class="fab fa-facebook-square"></i></span></a>
                 </div>
             </div>
             <div class="card-body">

@@ -14,7 +14,7 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    public UserController(final UserService userService) {
         this.userService = userService;
     }
 
@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    public String addUserAccount(@ModelAttribute("user") UserDTO user) {
+    public String addUserAccount(@ModelAttribute("user") final UserDTO user) {
         userService.addUser(user);
         return "redirect:/user/add?success";
     }

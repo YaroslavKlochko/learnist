@@ -17,7 +17,7 @@ public class RegistrationController {
 
     private final UserService userService;
 
-    public RegistrationController(UserService userService) {
+    public RegistrationController(final UserService userService) {
         this.userService = userService;
     }
 
@@ -27,7 +27,7 @@ public class RegistrationController {
     }
 
     @PostMapping(value = "/registration")
-    public String registerAccount(@ModelAttribute("user") UserDTO user, final HttpServletRequest request) {
+    public String registerAccount(@ModelAttribute("user") final UserDTO user, final HttpServletRequest request) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         SecurityContextHolder.getContext().setAuthentication(authentication);
         request.getSession().setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
