@@ -24,6 +24,7 @@ public final class AdminDetailsService implements UserDetailsService {
         return new UserAuth(
                 user.getUsername(),
                 user.getPassword(),
+                user.getEmail(),
                 TRUE, TRUE, TRUE, TRUE,
                 user.getAuthorities());
     }
