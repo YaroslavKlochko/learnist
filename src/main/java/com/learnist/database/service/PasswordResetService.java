@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+import static java.lang.String.format;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -35,7 +37,7 @@ public class PasswordResetService {
     }
 
     private String generatePasswordResetLinkForUser(final PasswordResetToken generatedToken) {
-        return "localhost:8080/reset-password/" + generatedToken.getToken();
+        return format("http://localhost:8080/reset-password/%s", generatedToken.getToken());
     }
 
     public void changePassword(final Long userId, final String newPassword) {
