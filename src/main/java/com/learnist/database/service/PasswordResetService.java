@@ -26,8 +26,8 @@ public class PasswordResetService {
     public boolean validateUserEmail(final String email) {
         try {
             userService.checkIfUserExistsByEmail(email);
-            PasswordResetToken generatedToken = tokenService.generateToken(email);
-            String link = generatePasswordResetLinkForUser(generatedToken);
+            final PasswordResetToken generatedToken = tokenService.generateToken(email);
+            final String link = generatePasswordResetLinkForUser(generatedToken);
             notificationService.sendMessage(email, link);
             return true;
         } catch (UserDoesntExistException e) {
@@ -42,7 +42,7 @@ public class PasswordResetService {
 
     public void changePassword(final Long userId, final String newPassword) {
         final User user = userService.findUserById(userId);
-        PasswordResetToken token = passwordResetTokenRepository.findTokenByUserId(userId);
+        final PasswordResetToken token = passwordResetTokenRepository.findTokenByUserId(userId);
         if (tokenService.validateTokenExpiryDate(userId)) {
             user.setPassword(new BCryptPasswordEncoder(10).encode(newPassword));
             userService.save(user);

@@ -24,7 +24,7 @@ public class UserService {
 
     public void addUser(final UserDTO user) {
         log.debug("Trying to add user: {}", user.getUsername());
-        User newUser = new User();
+        final User newUser = new User();
         newUser.setUsername(user.getUsername());
         newUser.setPassword(webSecurityConfig.passwordEncoder().encode(user.getPassword()));
         newUser.setAccountNonExpired(TRUE);

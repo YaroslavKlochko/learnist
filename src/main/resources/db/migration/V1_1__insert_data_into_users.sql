@@ -10,7 +10,3 @@ INSERT INTO users (username, password, email, enabled, account_expired, credenti
 VALUES ('creator_Anastasiia', '$2a$10$D9NsSU.I28ze6bdmpeK1ROt1p5Nij1NgRbip4xjmCjEfyT1h9J0OS',
         'anastasiiaforwork@gmail.com',
         TRUE, TRUE, TRUE, TRUE);
-
-
-
-

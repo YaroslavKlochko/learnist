@@ -31,8 +31,8 @@ public class TokenService {
     }
 
     public Boolean validateTokenExpiryDate(final Long userId) {
-        PasswordResetToken token = passwordResetTokenRepository.findTokenByUserId(userId);
-        LocalDateTime expiryDateToken = token.getExpiryDate().plusHours(24);
+        final PasswordResetToken token = passwordResetTokenRepository.findTokenByUserId(userId);
+        final LocalDateTime expiryDateToken = token.getExpiryDate().plusHours(24);
         return token.getExpiryDate().isBefore(expiryDateToken);
     }
 

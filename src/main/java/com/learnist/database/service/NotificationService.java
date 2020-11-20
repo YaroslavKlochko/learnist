@@ -14,9 +14,7 @@ public class NotificationService {
         this.mailSender = mailSender;
     }
 
-    public void sendMessage(final String email, final String link) { // Hello, %! add User in signature?
-        log.info("Send message to: {} with link: {}", email, link);
+    public void sendMessage(final String email, final String link) {
         mailSender.sendTo(email, "Reset password", format("Please follow the link to reset your password: %s", link));
-
     }
 }

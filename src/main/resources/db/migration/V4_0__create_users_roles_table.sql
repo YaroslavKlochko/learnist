@@ -5,4 +5,3 @@ CREATE TABLE users_roles (
   role_id BIGSERIAL NOT NULL,
   FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
-

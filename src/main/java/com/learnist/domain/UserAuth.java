@@ -12,11 +12,11 @@ public class UserAuth extends org.springframework.security.core.userdetails.User
     public UserAuth(final String username,
                     final String password,
                     final String email,
-                    final Collection<? extends GrantedAuthority> authorities, String email1) {
+                    final Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.username = username;
         this.password = password;
-        this.email = email1;
+        this.email = email;
     }
 
     public UserAuth(final String username,

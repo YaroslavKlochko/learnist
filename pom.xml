@@ -19,7 +19,7 @@
         <bootstrap.version>4.5.2</bootstrap.version>
         <jquery.version>3.5.1</jquery.version>
         <flyway.version>6.5.5</flyway.version>
-        <postgres.version>42.2.16</postgres.version>
+        <postgres.version>42.2.5</postgres.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->

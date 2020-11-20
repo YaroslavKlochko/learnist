@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static java.util.Objects.nonNull;
+
 @Controller
 public class LoginController {
 
@@ -33,7 +35,7 @@ public class LoginController {
     @PostMapping(value = "/perform_logout")
     public final String getLogoutPage(final HttpServletRequest request, final HttpServletResponse response) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null) {
+        if (nonNull(authentication)) {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
             return "login";
         }
