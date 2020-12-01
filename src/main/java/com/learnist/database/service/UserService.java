@@ -5,10 +5,13 @@ import com.learnist.database.repository.UserRepository;
 import com.learnist.domain.Role;
 import com.learnist.domain.User;
 import com.learnist.domain.UserDTO;
-import com.learnist.exception.UserDoesntExistException;
+import com.learnist.exception.UserEmailDoesntExistException;
+import com.learnist.exception.UserIdDoesntExistException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 import static java.lang.Boolean.TRUE;
 import static java.util.Objects.nonNull;
@@ -45,15 +48,29 @@ public class UserService {
         return userRepository.findUserById(id);
     }
 
-    public Boolean checkIfUserExistsByEmail(final String email) throws UserDoesntExistException {
+    public void checkUserAvailability(final Long id, final Boolean enabled) {
+        try {
+            final User user = userRepository.findById(id).orElseThrow(() -> new UserIdDoesntExistException(id));
+            user.setEnabled(enabled);
+            userRepository.save(user);
+        } catch (final UserIdDoesntExistException ex) {
+            log.error("Error: {} during the attempt to disable user with id: {}", ex.getMessage(), id);
+        }
+    }
+
+    public Boolean checkIfUserExistsByEmail(final String email) throws UserEmailDoesntExistException {
         if (nonNull(userRepository.findUserByEmail(email))) {
             return true;
         } else {
-            throw new UserDoesntExistException(email);
+            throw new UserEmailDoesntExistException(email);
         }
     }
 
     public void save(final User user) {
         userRepository.save(user);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

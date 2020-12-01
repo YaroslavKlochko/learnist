@@ -3,7 +3,7 @@ package com.learnist.database.service;
 import com.learnist.database.repository.PasswordResetTokenRepository;
 import com.learnist.domain.PasswordResetToken;
 import com.learnist.domain.User;
-import com.learnist.exception.UserDoesntExistException;
+import com.learnist.exception.UserEmailDoesntExistException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,7 +30,7 @@ public class PasswordResetService {
             final String link = generatePasswordResetLinkForUser(generatedToken);
             notificationService.sendMessage(email, link);
             return true;
-        } catch (UserDoesntExistException e) {
+        } catch (UserEmailDoesntExistException e) {
             log.error("user with this email already exists Error trace: {}", e.getMessage());
         }
         return false;
