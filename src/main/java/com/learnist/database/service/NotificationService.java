@@ -15,6 +15,6 @@ public class NotificationService {
     }
 
     public void sendMessage(final String email, final String link) {
-        mailSender.sendTo(email, "Reset password", format("Please follow the link to reset your password: %s", link));
+       mailSender.sendTo(email, "Reset password", format("Please follow the link to reset your password: %s", link));
     }
 }
