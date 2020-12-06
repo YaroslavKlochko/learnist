@@ -1,4 +1,4 @@
-<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -6,10 +6,14 @@
     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link th:href="@{/assets/css/profile.css}" rel="stylesheet"/>
+    <link th:href="@{/assets/css/search.css}" rel="stylesheet"/>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Learnist</a>
+    <a class="navbar-brand" href="/main">Learnist</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +27,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">Settings</a>
             </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/main" id="navbarDropdown" role="button"
                    data-toggle="dropdown"
@@ -31,23 +36,41 @@
                     Courses
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/main">Action</a>
-                    <a class="dropdown-item" href="/main">Another action</a>
+                    <a class="dropdown-item" href="/main">Learn English</a>
+                    <a class="dropdown-item" href="/main">Learn Chinese</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/perform_logout"> Logout</a>
                 </div>
+
             </li>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+
+                    <a class="nav-link search-position"  href="#">Trainings</a>
+                    <a class="nav-link search-position"  href="#">Dictionary</a>
+                    <a class="nav-link search-position"  href="#">Other materials</a>
+                </ul>
+            </div>
         </ul>
+
+        <div class="search-position">
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        </div>
+    </div>
+    <div class="profile-header-img" >
+            <img class="profile-default-image">
     </div>
 </nav>
 <p sec:authentication="principal.authorities">Roles</p>
 <div sec:authorize="hasAuthority('can_update')">
     This text is only shown to roles with can_update permissions.
 </div>
+
+
+
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <a href="/admin/profile">1) admin panel</a>
 </div>
