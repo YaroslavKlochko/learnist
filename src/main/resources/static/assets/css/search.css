@@ -1,3 +1,8 @@
 .search-position {
-    margin: 0px 50px 0px 50px;
+    margin: 0px 45px 0px 45px;
+}
+
+.page-scroll {
+    height:1000px;
+    overflow-y: scroll;
 }

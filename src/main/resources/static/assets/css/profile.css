@@ -4,6 +4,9 @@
     height: 50px;
     width: 50px;
     background-image: url("../img/profile/profilePhoto.png");
+}
 
+.profile-position {
+    margin-right: 450px;
 }
 

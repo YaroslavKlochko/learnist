@@ -46,22 +46,23 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
 
-                    <a class="nav-link search-position"  href="#">Trainings</a>
-                    <a class="nav-link search-position"  href="#">Dictionary</a>
-                    <a class="nav-link search-position"  href="#">Other materials</a>
+                    <a class="nav-link search-position"  href="/training/list">Trainings</a>
+                    <a class="nav-link search-position"  href="/dictionary/list">Dictionary</a>
+                    <a class="nav-link search-position"  href="/other-materials/list">Other materials</a>
+                    <a class="nav-link search-position"  href="/task/list">Daily tasks</a>
                 </ul>
             </div>
         </ul>
 
         <div class="search-position">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </div>
-    <div class="profile-header-img" >
-            <img class="profile-default-image">
+    <div class="profile-header-img">
+        <a href="/user/profile"><img class="profile-default-image"></a>
     </div>
 </nav>
 <p sec:authentication="principal.authorities">Roles</p>
@@ -80,6 +81,7 @@
 <div sec:authorize="hasRole('ROLE_CREATOR')">
     <div sec:authorize="hasRole('ROLE_CREATOR')">
         <a href="/creator/profile">3) link with hasRole('ROLE_CREATOR')</a>
+    </div>
 </div>
 <div sec:authorize="hasAnyRole('ROLE_CREATOR, ROLE_USER')">
     <a href="/creator/profile">4) hasAnyRole(CR, U CR can access, but U can't because of @PreAuthorize"</a>
