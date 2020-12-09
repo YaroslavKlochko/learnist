@@ -65,19 +65,19 @@
     </div>
 </nav>
 
-<section>
-    <div class="page-scroll">
-        <div class="list-group col-sm-2">
-            <a href="#" class="list-group-item list-group-item-action active">
-                Profile Settings
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">My purchases</a>
-            <a href="#" class="list-group-item list-group-item-action">Settings</a>
-            <a href="#" class="list-group-item list-group-item-action">Logout</a>
+<div class="container-fluid page-scroll">
+    <section>
+        <div class="row">
+            <div class="list-group col-sm-3">
+                <a href="/user/profile-settings" class="list-group-item list-group-item-action active">
+                    Profile Settings
+                </a>
+                <a href="/main" class="list-group-item list-group-item-action">My purchases</a>
+                <a href="/main" class="list-group-item list-group-item-action">Settings</a>
+                <a href="/perform-logout" class="list-group-item list-group-item-action">Logout</a>
+            </div>
 
-        </div>
-        <div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center col-sm-6">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://imgur.com/I80W1Q0.png" alt="Card image cap">
                     <div class="card-body">
@@ -96,11 +96,32 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-3">
+                <p>Level 35</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                         style="width:70%"></div>
+                </div>
+                <br>
+                <p>English level Intermediate</p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" style="width:45%"></div>
+                </div>
+                <br>
+                <p>Time goal for this week</p>
+                <div class="progress">
+                    <div class="progress-bar bg-danger" style="width:45%"></div>
+                </div>
+                <br>
+                <p>Total time:</p>
+                <div class="progress" style="height: 40px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:45%">453/1000
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
+</div>
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Learnist</a>
     <div style="color: lightgrey">Copyright © 2020 all rights reserved</div>
