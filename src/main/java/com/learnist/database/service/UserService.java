@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.lang.Boolean.TRUE;
 import static java.util.Objects.nonNull;
 
 @Slf4j
@@ -30,11 +29,7 @@ public class UserService {
         final User newUser = new User();
         newUser.setUsername(user.getUsername());
         newUser.setPassword(webSecurityConfig.passwordEncoder().encode(user.getPassword()));
-        newUser.setAccountNonExpired(TRUE);
-        newUser.setAccountNonLocked(TRUE);
-        newUser.setCredentialsNonExpired(TRUE);
-        newUser.setEnabled(TRUE);
-        final Role roleUser = roleService.findRoleByName("USER");
+        final Role roleUser = roleService.findRoleByName("ROLE_USER");
         newUser.getRoles().add(roleUser);
         userRepository.save(newUser);
         log.debug("User with username: {} has been successfully added", user.getUsername());

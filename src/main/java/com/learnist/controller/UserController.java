@@ -52,4 +52,14 @@ public class UserController {
         userService.checkUserAvailability(id, Boolean.TRUE);
         return "redirect:/user/list";
     }
+
+    @GetMapping(value = "/profile")
+    public String getUserProfile(){
+        return "users/user";
+    }
+
+    @GetMapping(value = "/profile-settings")
+    public String getUserProfileSettings(){
+        return "users/userProfileSettings";
+    }
 }

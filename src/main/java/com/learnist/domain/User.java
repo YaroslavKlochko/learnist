@@ -36,12 +36,13 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private boolean enabled;
-    private boolean accountNonLocked;
+    @Column(nullable = false)
+    private boolean enabled = true;
+    private boolean accountNonLocked = true;
     @Column(name = "account_expired")
-    private boolean accountNonExpired;
+    private boolean accountNonExpired = true;
     @Column(name = "credentials_expired")
-    private boolean credentialsNonExpired;
+    private boolean credentialsNonExpired = true;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",

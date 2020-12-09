@@ -31,7 +31,7 @@ public class PasswordResetService {
             notificationService.sendMessage(email, link);
             return true;
         } catch (UserEmailDoesntExistException e) {
-            log.error("user with this email already exists Error trace: {}", e.getMessage());
+            log.error("user with this email doesn't exists Error trace: {}", e.getMessage());
         }
         return false;
     }
