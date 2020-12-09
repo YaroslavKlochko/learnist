@@ -8,69 +8,15 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/main">Learnist</a>
+<div th:replace="/fragments/header::header"></div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/main">Settings</a>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/main" id="navbarDropdown" role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                    Courses
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/main">Learn English</a>
-                    <a class="dropdown-item" href="/main">Learn Chinese</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/perform_logout"> Logout</a>
-                </div>
-
-            </li>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-
-                    <a class="nav-link search-position"  href="/training/list">Trainings</a>
-                    <a class="nav-link search-position"  href="/dictionary/list">Dictionary</a>
-                    <a class="nav-link search-position"  href="/other-materials/list">Other materials</a>
-                    <a class="nav-link search-position"  href="/task/list">Daily tasks</a>
-                </ul>
-            </div>
-        </ul>
-
-        <div class="search-position">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-    <div class="profile-header-img">
-        <a href="/user/profile"><img class="profile-default-image"></a>
-    </div>
-</nav>
 <div sec:authorize="hasAuthority('ROLE_ADMIN')">
     <a href="/user/add">Add new user</a>
 </div>
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <a class="btn btn-primary" href="/main" role="button">Go Back</a>
 </div>
-<nav class="navbar fixed-bottom navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Learnist</a>
-    <div style="color: lightgrey">Copyright © 2020 all rights reserved</div>
-</nav>
+
+<div th:replace="/fragments/footer::footer"></div>
 </body>
 </html>
