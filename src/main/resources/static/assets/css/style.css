@@ -1,7 +1,6 @@
-/*login*/
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-html, body {
+.body-bg-wallpaper {
     background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -109,3 +108,39 @@ html, body {
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
+.search-position {
+    margin: 0px 25px 0px 25px;
+}
+
+.page-scroll {
+    height:750px;
+    overflow-y: scroll;
+}
+
+.profile-default-image {
+
+    border-radius: 125px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../img/profile/profilePhotoDemo.png");
+}
+
+.user-profile-image {
+    background-image: url("../img/profile/userImageDemo.png");
+}
+
+.progress-bar-name {
+    margin-right: 5px;
+}
+
+.texture-403 {
+    background: url("../img/error/403.png");
+}
+
+.texture-404 {
+    background: url("../img/error/404.jpg");
+}
+
+.texture-500 {
+    background: url("../img/error/500.png");
+}

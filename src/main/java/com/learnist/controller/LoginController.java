@@ -16,21 +16,7 @@ import static java.util.Objects.nonNull;
 @Controller
 public class LoginController {
 
-    @GetMapping(value = "/login")
-    public String getLogin() {
-        return "login";
-    }
 
-    @GetMapping("/login-error")
-    public String getLoginErrorPage(final Model model) {
-        model.addAttribute("loginError", true);
-        return "error";
-    }
-
-    @GetMapping(value = "/perform_logout")
-    public final String getLogoutPage() {
-        return "login";
-    }
 
     @PostMapping(value = "/perform_logout")
     public final String getLogoutPage(final HttpServletRequest request, final HttpServletResponse response) {

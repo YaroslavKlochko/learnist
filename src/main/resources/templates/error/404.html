@@ -1,10 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <meta charset="UTF-8">
-    <title>Error 404</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link th:href="@{/assets/css/error.css}" rel="stylesheet"/>
-</head>
+<head th:replace="/fragments/head::head"></head>
 <body class="texture-404">
 <div class="back-btn">
     <a href="/main" type="button" class="btn btn-secondary btn-lg btn-block">Go Back</a>
