@@ -18,7 +18,24 @@
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-dashboard {
+    height: 180px;
+    width: 706px;
+    margin: 50px auto 150px auto;
+}
+
+a.one:link {
+    color: purple;
+}
+
+a.one:visited {
+    color: mediumpurple;
+}
+
+a.one:hover {
+    color: purple;
 }
 
 .social_icon span {
