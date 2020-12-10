@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Objects;
-
 import static java.util.Objects.nonNull;
 
 @Controller
@@ -22,11 +20,6 @@ public class PasswordController {
 
     private final PasswordResetService passwordResetService;
     private final TokenService tokenService;
-
-    @GetMapping(value = "/forgetPassword")
-    public String getForgetPasswordPage() {
-        return "forgetPassword";
-    }
 
     @PostMapping(value = "/forgetPassword")
     public String getForgetPasswordPage(@ModelAttribute("email") final String email) {
@@ -39,7 +32,6 @@ public class PasswordController {
 
     @GetMapping(value = "/reset-password/{token}")
     public String getResetPasswordPage(@PathVariable final String token, final Model model) {
-
         final PasswordResetToken passwordResetToken = tokenService.tokenExists(token);
         if (nonNull(passwordResetToken)) {
             model.addAttribute("userId", passwordResetToken.getUserId());

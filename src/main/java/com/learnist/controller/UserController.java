@@ -23,11 +23,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/add")
-    public String getUserPage() {
-        return "users/user";
-    }
-
     @PostMapping(value = "/add")
     public String addUserAccount(@ModelAttribute("user") final UserDTO user) {
         userService.addUser(user);
@@ -51,15 +46,5 @@ public class UserController {
     public String enableUser(@PathVariable final Long id) {
         userService.checkUserAvailability(id, Boolean.TRUE);
         return "redirect:/user/list";
-    }
-
-    @GetMapping(value = "/profile")
-    public String getUserProfile(){
-        return "users/user";
-    }
-
-    @GetMapping(value = "/profile-settings")
-    public String getUserProfileSettings(){
-        return "users/userProfileSettings";
     }
 }

@@ -1,12 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Learnist</title>
-    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
-</head>
+<head th:replace="/fragments/head::head"></head>
 <div th:replace="/fragments/header::header"></div>
 
 <th:block th:fragment="content">
@@ -57,7 +50,6 @@
             </div>
         </div>
 </th:block>
-
 
 <div th:replace="/fragments/footer::footer"></div>
 </html>
