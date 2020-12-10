@@ -1,53 +1,63 @@
-<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/fragments/head::head"></head>
 <body>
 <div th:replace="/fragments/header::header"></div>
-
-<div class="card mb-3">
-    <img class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn1.jpg}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<div th:class="container-fluid">
+    <div class="card-dashboard">
+        <a class="one" href="/dictionary/list">
+            <img alt="Card image cap" class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn1.jpg}">
+            <div class="card-body">
+                <h5 class="card-title">Daily Task 1: Listening</h5>
+                <p class="card-text">In this task you are going to listen a dialog between 2 friends and answer to the
+                    questions afterwards</p>
+                <p class="card-text"><small class="text-muted">Last updated 17 mins ago</small></p>
+            </div>
+        </a>
+    </div>
+    <div class="card-dashboard">
+        <a class="one" href="/dictionary/list">
+            <img alt="Card image cap" class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn2.jpg}">
+            <div class="card-body">
+                <h5 class="card-title">Daily Task 2: Reading</h5>
+                <p class="card-text">In this task you are going to read a dialog between 2 friends and answer to the
+                    questions afterwards</p>
+                <p class="card-text"><small class="text-muted">Last updated 17 mins ago</small></p>
+            </div>
+        </a>
+    </div>
+    <div class="card-dashboard">
+        <a class="one" href="/dictionary/list">
+            <img alt="Card image cap" class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn3.PNG}">
+            <div class="card-body">
+                <h5 class="card-title">Daily Task 3: Writing</h5>
+                <p class="card-text">In this task you are going to write a dialog between 2 friends and answer to the
+                    questions afterwards</p>
+                <p class="card-text"><small class="text-muted">Last updated 17 mins ago</small></p>
+            </div>
+        </a>
+    </div>
+    <div class="card-dashboard">
+        <a class="one" href="/dictionary/list">
+            <img alt="Card image cap" class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn4.jpg}">
+            <div class="card-body">
+                <h5 class="card-title">Daily Task 4: Speaking</h5>
+                <p class="card-text">In this task you are going to listen a dialog between 2 friends and talk within
+                    related topic for 2 minutes</p>
+                <p class="card-text"><small class="text-muted">Last updated 17 mins ago</small></p>
+            </div>
+        </a>
+    </div>
+    <div class="card-dashboard">
+        <a class="one" href="/dictionary/list">
+            <img alt="Card image cap" class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn5.jpg}">
+            <div class="card-body">
+                <h5 class="card-title">Daily Task 5: Grammar</h5>
+                <p class="card-text">In this task you are going to learn about Present Continuous</p>
+                <p class="card-text"><small class="text-muted">Last updated 17 mins ago</small></p>
+            </div>
+        </a>
     </div>
 </div>
-
-<div class="card mb-3">
-    <img class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn2.jpg}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-</div>
-
-<div class="card mb-3">
-    <img class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn3.PNG}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-</div>
-
-<div class="card mb-3">
-    <img class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn4.jpg}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-</div>
-
-<div class="card mb-3">
-    <img class="card-img-top" th:src="@{/assets/img/trainingCards/dashboard/learn5.jpg}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-</div>
-
 <div th:replace="/fragments/footer::footer"></div>
 </body>
 </html>
