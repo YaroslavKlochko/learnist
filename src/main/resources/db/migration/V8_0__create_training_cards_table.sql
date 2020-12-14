@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS training_cards CASCADE;
+CREATE TABLE training_cards
+(
+    id BIGSERIAL PRIMARY KEY NOT NULL,
+    question VARCHAR (250) NOT NULL,
+    answer VARCHAR(250) NOT NULL
+)

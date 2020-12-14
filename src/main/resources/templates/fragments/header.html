@@ -15,7 +15,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">Settings</a>
             </li>
-
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/main" id="navbarDropdown" role="button"
                    data-toggle="dropdown"
@@ -29,13 +28,19 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/perform_logout"> Logout</a>
                 </div>
-
             </li>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-
-                    <a class="nav-link search-position"  href="/training/list">Trainings</a>
-                    <a class="nav-link search-position"  href="/dictionary/list">Dictionary</a>
+                    <a class="nav-link search-position" href="/training">Trainings</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/main" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Dictionary</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/dictionary">Dictionaries</a>
+                            <a class="dropdown-item" href="/dictionary/vocabulary/my-list">My vocabulary</a>
+                        </div>
+                    </li>
                     <a class="nav-link search-position"  href="/other-materials/list">Other materials</a>
                     <a class="nav-link search-position"  href="/task/list">Daily tasks</a>
                 </ul>

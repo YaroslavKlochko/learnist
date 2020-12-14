@@ -2,7 +2,6 @@
 <head th:replace="/fragments/head::head"></head>
 <body>
 <div th:replace="/fragments/header::header"></div>
-
 <div class="container-fluid page-scroll">
     <section>
         <div class="row">
@@ -14,9 +13,8 @@
                 <a href="/main" class="list-group-item list-group-item-action">Settings</a>
                 <a href="/perform_logout" class="list-group-item list-group-item-action">Logout</a>
             </div>
-
             <div class="d-flex justify-content-center col-sm-6">
-                <div class="card" style="width: 18rem;">
+                <div class="card-profile" style="width: 18rem;">
                     <img class="card-img-top" th:src="@{/assets/img/profile/userImageDemo.png}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Mr. Yaro</h5>
@@ -60,7 +58,6 @@
         </div>
     </section>
 </div>
-
 <div th:replace="/fragments/footer::footer"></div>
 </body>
 </html>
