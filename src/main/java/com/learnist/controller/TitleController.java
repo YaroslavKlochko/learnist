@@ -67,8 +67,8 @@ public class TitleController {
         return "creator";
     }
 
-    @GetMapping(value = "/dictionary/list")
-    public String getDictionaryList(final Model model) {
+    @GetMapping(value = "/dictionary")
+    public String getDictionary(final Model model) {
         model.addAttribute(TITLE, "Dictionary | Learnist");
         return "dictionary/list";
     }
@@ -79,7 +79,7 @@ public class TitleController {
         return "otherMaterials/list";
     }
 
-    @GetMapping(value = "/training/list")
+    @GetMapping(value = "/training")
     public String getTrainingList(final Model model){
         model.addAttribute(TITLE, "Training | Learnist");
         return "trainings/list";

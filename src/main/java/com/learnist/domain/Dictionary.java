@@ -9,13 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "dictionaries")
 @Data
-@Table(name = "training_cards")
-public class TrainingCard {
+public class Dictionary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String question;
-    private String answer;
+    private String name;
 }

@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head::head"></head>
+<body>
+<div th:replace="/fragments/header::header"></div>
+<div class="contrainer-fluid">
+    <div id="center">
+        <table class="table table-striped table-responsive-sm">
+            <thead>
+            <tr>
+                <th scope="col" th:text="'#'"></th>
+                <th scope="col" th:text="'Questions'"></th>
+                <th scope="col" th:text="'Answers'"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="trainingCard : ${trainingCards}">
+                <td th:text="${trainingCard.id}"></td>
+                <td th:text="${trainingCard.question}"></td>
+                <td th:text="${trainingCard.answer}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="/fragments/footer::footer"></div>
+</body>
+</html>

@@ -12,10 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "password_reset_tokens")
 @NoArgsConstructor
 public class PasswordResetToken {
 

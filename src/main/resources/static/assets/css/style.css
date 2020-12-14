@@ -18,16 +18,31 @@
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-profile {
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
 }
 
 .card-dashboard {
     height: 180px;
     width: 706px;
-    margin: 50px auto 150px auto;
+    margin: 150px auto 150px auto;
+}
+
+#center {
+    width:80%;
+    margin-top: 2rem;
+    margin-left:10%;
+    margin-right:10%;
 }
 
 a.one:link {
-    color: purple;
+    color: black;
 }
 
 a.one:visited {
@@ -35,7 +50,7 @@ a.one:visited {
 }
 
 a.one:hover {
-    color: purple;
+    color: darkblue;
 }
 
 .social_icon span {
