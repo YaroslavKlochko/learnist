@@ -25,6 +25,7 @@
         <spring-boot-starter-test.version>2.3.5.RELEASE</spring-boot-starter-test.version>
         <spring-security-oauth2-client.version>5.4.1</spring-security-oauth2-client.version>
         <spring-security-oauth2-jose.version>5.4.0</spring-security-oauth2-jose.version>
+        <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
 
     </properties>
     <dependencies>
@@ -73,16 +74,15 @@
             <version>${flyway.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot-starter-test.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco-maven-plugin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
