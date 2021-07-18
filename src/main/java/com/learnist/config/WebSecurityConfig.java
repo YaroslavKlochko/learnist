@@ -2,6 +2,8 @@ package com.learnist.config;
 
 import com.learnist.database.repository.UserRepository;
 import com.learnist.database.service.AdminDetailsService;
+import com.learnist.database.service.CustomLoginFailureHandler;
+import com.learnist.database.service.CustomLoginSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,12 +35,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.dataSource = dataSource;
     }
 
+
+    @Autowired
+    private CustomLoginFailureHandler loginFailureHandler;
+    @Autowired
+    private CustomLoginSuccessHandler loginSuccessHandler;
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/assets/**", "/webjars/**", "/resources/**").permitAll()
-                .antMatchers("/", "/welcome", "/registration", "/forgetPassword", "/reset-password/**").permitAll()
+                .antMatchers("/", "/welcome", "/registration","/login-error", "/forgetPassword", "/reset-password/**").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
@@ -46,10 +54,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .permitAll()
                 .loginProcessingUrl("/j_spring_security_check")
-                .defaultSuccessUrl("/main")
-                .failureUrl("/login-error")
+                .usernameParameter("email")
+//
+                .permitAll()
+                .failureHandler(loginFailureHandler)
+                .successHandler(loginSuccessHandler)
 
                 .and()
                 .logout()

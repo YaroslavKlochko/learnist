@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <p style=color:whitesmoke th:if="${loginError}" class="error">Wrong user or password</p>
+                <p style=color:whitesmoke th:if="${loginError}" class="error">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
                 <form id="main-form" method="post" th:action="@{/j_spring_security_check}">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">

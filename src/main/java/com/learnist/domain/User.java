@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,12 +38,12 @@ public class User {
     private String password;
     private String email;
     @Column(nullable = false)
-    private boolean enabled = true;
-    private boolean accountNonLocked = true;
-    @Column(name = "account_expired")
-    private boolean accountNonExpired = true;
-    @Column(name = "credentials_expired")
-    private boolean credentialsNonExpired = true;
+    private boolean enabled;
+    private boolean accountNonLocked;
+    private boolean accountNonExpired;
+    private int failedAttempt;
+    private Date lockTime;
+    private boolean credentialsNonExpired;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
@@ -50,13 +51,4 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
-
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<GrantedAuthority> authorities = new HashSet<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-            role.getPermissions().forEach(p -> authorities.add(new SimpleGrantedAuthority(p.getName())));
-        }
-        return authorities;
-    }
 }

@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "flyway.schemas",
+      "type": "java.lang.String",
+      "description": "Description for flyway.schemas."
+  }
+] }
